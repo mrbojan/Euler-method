@@ -2,12 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #function that we differentiate
-def func(t,y):
-    xx=y[0]
-    yy=y[1]
-    xdot= xx
-    ydot= yy
-    return np.array([xdot,ydot])
+def func(t, y):
+    xx = y[0]
+    yy = y[1]
+    xdot = xx
+    ydot = yy
+    return np.array([xdot, ydot])
 
 class Euler:
 
@@ -26,18 +26,19 @@ class Euler:
     #method of start symulation
     def start_symulation(self):
         while(self.iter < self.length_time):
-            self.x_matrix[self.iter]= np.array(self.x_matrix[self.iter-1] + self.step *
-                                       self.func(self.time[self.iter - 1], self.x_matrix[self.iter - 1]))   #equation Euler
+            self.x_matrix[self.iter]= np.array(self.x_matrix[self.iter - 1] + self.step
+                                               * self.func(self.time[self.iter - 1],
+                                                           self.x_matrix[self.iter - 1]))   #equation Euler
             self.iter += 1
-        return self.time, self.x_matrix     #retrun our time and euler solution
+        return self.time, self.x_matrix     #return our time and euler solution
 
     #method
     def show_plots(self):
         plt.figure(1)       #first plot with time to solution xdot and ydot
-        plt.plot(self.time,self.x_matrix[:,0])
-        plt.plot(self.time,self.x_matrix[:,1])
+        plt.plot(self.time, self.x_matrix[:,0])
+        plt.plot(self.time, self.x_matrix[:,1])
         plt.figure(2)       #second plot with solution xdot to ydot
-        plt.plot(self.x_matrix[:,0],self.x_matrix[:,1])
+        plt.plot(self.x_matrix[:,0], self.x_matrix[:,1])
         return plt.show()
 
 #values
