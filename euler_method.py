@@ -3,11 +3,9 @@ import matplotlib.pyplot as plt
 
 #function that we differentiate
 def func(t, y):
-    xx = y[0]
-    yy = y[1]
-    xdot = xx
-    ydot = yy
-    return np.array([xdot, ydot])
+    x = y[0]
+    xdot = y[1]
+    return np.array([xdot, -x])
 
 class Euler:
 
@@ -34,10 +32,10 @@ class Euler:
 
     #method
     def show_plots(self):
-        plt.figure(1)       #first plot with time to solution xdot and ydot
+        plt.subplot(211)     #first plot with time to solution xdot and ydot
         plt.plot(self.time, self.x_matrix[:,0])
         plt.plot(self.time, self.x_matrix[:,1])
-        plt.figure(2)       #second plot with solution xdot to ydot
+        plt.subplot(212)       #second plot with solution xdot to ydot
         plt.plot(self.x_matrix[:,0], self.x_matrix[:,1])
         return plt.show()
 
