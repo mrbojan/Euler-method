@@ -30,21 +30,11 @@ class Euler:
             self.iter += 1
         return self.time, self.x_matrix     #return our time and euler solution
 
-    #method
+
     def show_plots(self):
-        plt.subplot(211)     #first plot with time to solution xdot and ydot
+        plt.subplot(211)     #first plot with time to solution x and xdot
         plt.plot(self.time, self.x_matrix[:,0])
         plt.plot(self.time, self.x_matrix[:,1])
-        plt.subplot(212)       #second plot with solution xdot to ydot
+        plt.subplot(212)       #second plot with solution x to xdot
         plt.plot(self.x_matrix[:,0], self.x_matrix[:,1])
         return plt.show()
-
-#values
-x0 = [1.0, 1.0]
-time_zero = .0
-time_end = 30.0
-step = 0.01
-#use of the Euler class
-euler = Euler(func, x0, time_zero, time_end, step)
-time, x_matrix = euler.start_symulation()
-euler.show_plots()
